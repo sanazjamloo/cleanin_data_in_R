@@ -1,4 +1,4 @@
-# text stored as numbers
+# Text stored as numbers
 
 
 library(tidyverse)
