@@ -46,3 +46,14 @@ filtered_water$sampleTime <- mdy_hms(filtered_water$sampleTime)
 
 summary(filtered_water)
 
+# Detecting and removing outliers
+ggplot(filtered_water, mapping=aes(x=sampleTime, y=result)) +
+  geom_point()
+
+glimpse(subset(filtered_water, result>1000000))
+
+remove <- which(filtered_water$result>1000000 | is.na(filtered_water$result))
+
+filtered_water <- filtered_water[-remove,]
+summary(filtered_water)
+
